@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リフォームについて - 読売工務店株式会社</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+         /* backtotop start */
+         #backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background: #555;
+    transform: translateY(-3px);
+}
+
+#backToTop.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+        /* backtotop end */
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            background-color: #F8F9FF;
+            color: #333;
+        }
+
+        /* Page Header */
+        .page-header {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .page-header-title {
+            position: relative;
+            z-index: 2;
+            color: #333;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .intro-section p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Concerns Section */
+        .concerns-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .title-underline {
+            width: 40px;
+            height: 3px;
+            background-color: #2DD4BF;
+            margin: 0 auto;
+        }
+
+        .concerns-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .concern-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .concern-card h3 {
+            color: #2DD4BF;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .concern-card h3::before {
+            content: "●";
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        /* Seismic Section */
+        .seismic-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .seismic-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .seismic-section p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Button */
+        .contact-button {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+            padding: 15px 40px;
+            background-color: #2DD4BF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #26bba8;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+                margin-top: 70px;
+            }
+            
+            .page-header-title {
+                font-size: 24px;
+                padding: 15px 30px;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .intro-section,
+            .seismic-section {
+                padding: 30px;
+            }
+
+            .concerns-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .page-header {
+                height: 150px;
+            }
+            
+            .page-header-title {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .section-title h2 {
+                font-size: 20px;
+            }
+
+            .concern-card {
+                padding: 20px;
+            }
+
+            .concern-card h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation start -->
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="トップ.html" class="company-name">読売工務店株式会社</a>
+            <ul class="top-menu">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+                <a href="お問い合わせ.html" class="contact-btn">お問い合わせ</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu Toggle Button -->
+    <nav id="testing">
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="main-nav-container">
+            <ul class="main-menu">
+                <li><a href="トップ.html">ホーム</a></li>
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html"  class="active">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navigation end -->
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <img src="assets/01.jpg" alt="リフォームについて">
+        <h1 class="page-header-title">リフォームについて</h1>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <p>家が古くなったのでリフォームしたい。でもどこに頼めばよいか分からない。<br>
+            弊社は小規模な会社ですが、独自のウノウハウが沢山ありますので、安心してご依頼ください。</p>
+            
+            <p>特に間取りの変更やシステムの見直しにおいては、他社に負けないアイデアとノウハウがあります。<br>
+            是非お気軽にご相談ください。</p>
+        </section>
+
+        <!-- Concerns Section -->
+        <section class="concerns-section">
+            <div class="section-title">
+                <h2>こんな事でお困りではないですか？</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="concerns-grid">
+                <div class="concern-card">
+                    <h3>水回りの不安</h3>
+                    <p>水回りが古くなって水漏れが心配だ</p>
+                </div>
+                <div class="concern-card">
+                    <h3>設備の老朽化</h3>
+                    <p>キッチンや洗面などの設備が古くなって使いずらい</p>
+                </div>
+                <div class="concern-card">
+                    <h3>バリアフリー</h3>
+                    <p>歳をとったので手摺が欲しい</p>
+                </div>
+                <div class="concern-card">
+                    <h3>外観の劣化</h3>
+                    <p>外壁にヒビが入って見た目が汚らしい</p>
+                </div>
+                <div class="concern-card">
+                    <h3>雨漏り</h3>
+                    <p>雨漏りがする</p>
+                </div>
+                <div class="concern-card">
+                    <h3>設備の追加</h3>
+                    <p>浴室乾燥機を取り付けたい</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px;">普段の生活における「不便」を解決したり、綺麗な部屋にしたいなど、<br>
+            お客様のご要望に合わせて最適なリフォーム内容をご提案いたします。</p>
+        </section>
+
+        <!-- Seismic Section -->
+        <section class="seismic-section">
+            <h2>耐震補強もご相談ください</h2>
+            <p>経年劣化で耐震強度がご心配な場合でも大丈夫です。<br>
+            強度計算を行い、耐震補強工事を行えます。</p>
+        </section>
+
+        <a href="お問い合わせ.html" class="contact-button">お問い合わせはこちら</a>
+    </main>
+
+        <!-- Footer start -->
+        <footer class="footer">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="新築について.html">新築について</a></li>
+                    <li><a href="リフォームについて.html">リフォームについて</a></li>
+                    <li><a href="施工事例.html">施工事例</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <li><a href="会社概要.html">会社概要</a></li>
+                    <li><a href="アクセス.html">アクセス</a></li>
+                    <li><a href="新着情報.html">新着情報</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                    <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+                    <li><a href="お問い合わせ.html">お問い合わせ</a></li>
+                </ul>
+                <div class="company-info">
+                    <h3>読売工務店株式会社</h3>
+                    <p>〒108-0014 東京都港区芝5-26-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第-12345-号</p>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright">
+            Copyright © Yomiuri Architect Office All Rights Reserved.
+        </div>
+        <!-- Footer end -->
+             <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+</body>
+<script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const button = document.getElementById('backToTop');
+        let lastScrollPosition = 0;
+        const scrollThreshold = 300; // Show button after scrolling this many pixels
+
+        // Throttle function to limit scroll event handling
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Handle scroll event
+        window.addEventListener('scroll', throttle(function() {
+            const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Show/hide button based on scroll position
+            if (currentScrollPosition > scrollThreshold) {
+                button.classList.add('visible');
+            } else {
+                button.classList.remove('visible');
+            }
+
+            // Update last scroll position
+            lastScrollPosition = currentScrollPosition;
+        }, 100));
+
+        // Smooth scroll to top when button is clicked
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Use smooth scroll if supported
+            if ('scrollBehavior' in document.documentElement.style) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Fallback for browsers that don't support smooth scroll
+                smoothScrollFallback();
+            }
+        });
+
+        // Fallback smooth scroll implementation
+        function smoothScrollFallback() {
+            const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentPosition > 0) {
+                window.requestAnimationFrame(smoothScrollFallback);
+                window.scrollTo(0, currentPosition - currentPosition / 8);
+            }
+        }
+    });
+</script>
+</html>

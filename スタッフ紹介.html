@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スタッフ紹介 - 読売工務店株式会社</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* backtotop start */
+ #backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background: #555;
+    transform: translateY(-3px);
+}
+
+#backToTop.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+        /* backtotop end */
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.8;
+            background-color: #F8F9FF;
+            color: #333;
+        }
+
+        /* Page Header */
+        .page-header {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .page-header-title {
+            position: relative;
+            z-index: 2;
+            color: #333;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* CEO Section */
+        .ceo-section {
+            margin-bottom: 80px;
+        }
+
+        .ceo-profile {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .ceo-image {
+            flex: 0 0 400px;
+        }
+
+        .ceo-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .ceo-info {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .ceo-name {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .ceo-name-reading {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .ceo-title {
+            font-size: 18px;
+            color: #2DD4BF;
+            margin-bottom: 20px;
+        }
+
+        .ceo-details {
+            margin-bottom: 20px;
+        }
+
+        .ceo-details p {
+            margin-bottom: 10px;
+        }
+
+        /* Staff Grid */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .staff-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .staff-image {
+            width: 100%;
+            height: 300px;
+        }
+
+        .staff-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-info {
+            padding: 30px;
+        }
+
+        .staff-name {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .staff-name-reading {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .staff-title {
+            font-size: 16px;
+            color: #2DD4BF;
+            margin-bottom: 15px;
+        }
+
+        .staff-details p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .staff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+                margin-top: 70px;
+            }
+            
+            .page-header-title {
+                font-size: 24px;
+                padding: 15px 30px;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .ceo-profile {
+                flex-direction: column;
+            }
+
+            .ceo-image {
+                flex: none;
+                width: 100%;
+            }
+
+            .ceo-image img {
+                height: 300px;
+            }
+
+            .ceo-info {
+                padding: 30px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .page-header {
+                height: 150px;
+            }
+            
+            .page-header-title {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .staff-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation start -->
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="トップ.html" class="company-name">読売工務店株式会社</a>
+            <ul class="top-menu">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+                <a href="お問い合わせ.html" class="contact-btn">お問い合わせ</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu Toggle Button -->
+    <nav id="testing">
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="main-nav-container">
+            <ul class="main-menu">
+                <li><a href="トップ.html">ホーム</a></li>
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html"  class="active">スタッフ紹介</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navigation end -->
+    <!-- Page Header -->
+    <div class="page-header">
+        <img src="assets/01.jpg" alt="スタッフ紹介">
+        <h1 class="page-header-title">スタッフ紹介</h1>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- CEO Section -->
+        <section class="ceo-section">
+            <div class="ceo-profile">
+                <div class="ceo-image">
+                    <img src="assets/02.JPG" alt="代表取締役社長">
+                </div>
+                <div class="ceo-info">
+                    <div class="ceo-title">代表取締役社長</div>
+                    <h2 class="ceo-name">山田 太郎</h2>
+                    <p class="ceo-name-reading">やまだ たろう</p>
+                    <div class="ceo-details">
+                        <p>1987年生まれ</p>
+                        <p>2006年、○○高校卒業</p>
+                        <p>2009年、読売理工医療福祉専門学校卒業</p>
+                        <br>
+                        <p>人々を幸せにする住宅を設計・施工する事を目標に、様々な建築を見て歩きました。</p>
+                        <p>お客様が本当に満足する設計とは何か？その答えは弊社にあります。</p>
+                        <p>まずはお気軽にご相談ください。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Staff Grid -->
+        <div class="staff-grid">
+            <!-- Staff 1 -->
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="assets/03.jpg" alt="読売 理子">
+                </div>
+                <div class="staff-info">
+                    <div class="staff-title">アシスタント</div>
+                    <h3 class="staff-name">読売 理子</h3>
+                    <p class="staff-name-reading">よみうり りこ</p>
+                    <div class="staff-details">
+                        <p>1992年生まれ</p>
+                        <p>読売理工医療福祉専門学校 建築学科卒</p>
+                        <br>
+                        <p>家を建てる仕事がしたくてこの会社に入りました。お引渡しの際、お客様が喜ぶ姿が何よりのやる気に繋がります。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff 2 -->
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="assets/04.JPG" alt="田中 健一">
+                </div>
+                <div class="staff-info">
+                    <div class="staff-title">設計士</div>
+                    <h3 class="staff-name">田中 健一</h3>
+                    <p class="staff-name-reading">たなか けんいち</p>
+                    <div class="staff-details">
+                        <p>1994年生まれ</p>
+                        <p>読売理工医療福祉専門学校 建築学科卒</p>
+                        <br>
+                        <p>お客様の理想を形にすることが私の使命です。ご要望に沿った最適な設計プランをご提案させていただきます。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff 3 -->
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="assets/aisatsu.jpg" alt="佐藤 美咲">
+                </div>
+                <div class="staff-info">
+                    <div class="staff-title">インテリアコーディネーター</div>
+                    <h3 class="staff-name">佐藤 美咲</h3>
+                    <p class="staff-name-reading">さとう みさき</p>
+                    <div class="staff-details">
+                        <p>1993年生まれ</p>
+                        <p>読売理工医療福祉専門学校 建築学科卒</p>
+                        <br>
+                        <p>快適な暮らしのためのインテリア提案を心がけています。お客様のライフスタイルに合わせた空間づくりをサポートいたします。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+            <!-- Footer start -->
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+                <li><a href="お問い合わせ.html">お問い合わせ</a></li>
+            </ul>
+            <div class="company-info">
+                <h3>読売工務店株式会社</h3>
+                <p>〒108-0014 東京都港区芝5-26-16</p>
+                <p>TEL: 03-3455-0221</p>
+                <p>一級建築士事務所</p>
+                <p>東京都知事登録 第-12345-号</p>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        Copyright © Yomiuri Architect Office All Rights Reserved.
+    </div>
+    <!-- Footer end -->
+                  <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+    <script src="script.js"></script>
+</body>
+</html>

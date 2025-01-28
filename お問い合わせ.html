@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - 読売工務店株式会社</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.8;
+            background-color: #F8F9FF;
+            color: #333;
+        }
+
+        /* Page Header */
+        .page-header {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .page-header-title {
+            position: relative;
+            z-index: 2;
+            color: #333;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Form Description */
+        .form-description {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-description p {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .required::after {
+            content: "【必須】";
+            color: #e74c3c;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2DD4BF;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            min-height: 200px;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #2DD4BF;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .submit-button {
+            display: block;
+            width: 200px;
+            margin: 40px auto 0;
+            padding: 15px;
+            background: #2DD4BF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #26bba8;
+        }
+
+        .submit-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+                margin-top: 70px;
+            }
+            
+            .page-header-title {
+                font-size: 24px;
+                padding: 15px 30px;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .page-header {
+                height: 150px;
+            }
+            
+            .page-header-title {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .submit-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation start -->
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="トップ.html" class="company-name">読売工務店株式会社</a>
+            <ul class="top-menu">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+                <a href="お問い合わせ.html" class="contact-btn">お問い合わせ</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu Toggle Button -->
+    <nav id="testing">
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="main-nav-container">
+            <ul class="main-menu">
+                <li><a href="トップ.html" class="active">ホーム</a></li>
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navigation end -->
+    <!-- Page Header -->
+    <div class="page-header">
+        <img src="assets/01.jpg" alt="お問い合わせ">
+        <h1 class="page-header-title">お問い合わせ</h1>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Form Description -->
+        <div class="form-description">
+            <p>下記の入力フォームへ必要事項をご記入の上、「送信する」ボタンを押して送信してください。</p>
+            <p>送信完了後にこちらから自動返信メールをお送り致しますので、24時間待ってもメールが届かない場合は、ご入力いただいたメールアドレスが間違っていた可能性があります。</p>
+            <p>その場合はお手数ですが、再度このページより送信ください。</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label class="form-label required">お名前</label>
+                <input type="text" class="form-input" required>
+                <div class="error-message">お名前を入力してください</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label required">フリガナ</label>
+                <input type="text" class="form-input" required>
+                <div class="error-message">フリガナを入力してください</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">住所</label>
+                <input type="text" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">電話番号</label>
+                <input type="tel" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label required">メールアドレス</label>
+                <input type="email" class="form-input" required>
+                <div class="error-message">正しいメールアドレスを入力してください</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label required">メールアドレス確認入力</label>
+                <input type="email" class="form-input" required>
+                <div class="error-message">メールアドレスが一致しません</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label required">お問い合わせ内容</label>
+                <textarea class="form-textarea" required></textarea>
+                <div class="error-message">お問い合わせ内容を入力してください</div>
+            </div>
+
+            <button type="submit" class="submit-button">送信する</button>
+        </form>
+    </main>
+        <!-- Footer start -->
+        <footer class="footer">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="新築について.html">新築について</a></li>
+                    <li><a href="リフォームについて.html">リフォームについて</a></li>
+                    <li><a href="施工事例.html">施工事例</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <li><a href="会社概要.html">会社概要</a></li>
+                    <li><a href="アクセス.html">アクセス</a></li>
+                    <li><a href="新着情報.html">新着情報</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                    <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+                    <li><a href="お問い合わせ.html">お問い合わせ</a></li>
+                </ul>
+                <div class="company-info">
+                    <h3>読売工務店株式会社</h3>
+                    <p>〒108-0014 東京都港区芝5-26-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第-12345-号</p>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright">
+            Copyright © Yomiuri Architect Office All Rights Reserved.
+        </div>
+        <!-- Footer end -->
+    <!-- Form Validation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('input, textarea');
+            const emailInputs = form.querySelectorAll('input[type="email"]');
+
+            // Show error message
+            function showError(input) {
+                const errorMessage = input.nextElementSibling;
+                if (errorMessage && errorMessage.classList.contains('error-message')) {
+                    errorMessage.style.display = 'block';
+                }
+            }
+
+            // Hide error message
+            function hideError(input) {
+                const errorMessage = input.nextElementSibling;
+                if (errorMessage && errorMessage.classList.contains('error-message')) {
+                    errorMessage.style.display = 'none';
+                }
+            }
+
+            // Validate email format
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // Check if emails match
+            function checkEmailsMatch() {
+                if (emailInputs[0].value && emailInputs[1].value) {
+                    if (emailInputs[0].value !== emailInputs[1].value) {
+                        showError(emailInputs[1]);
+                    } else {
+                        hideError(emailInputs[1]);
+                    }
+                }
+            }
+
+            // Input validation
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (input.required && !input.value) {
+                        showError(input);
+                    } else if (input.type === 'email' && input.value && !isValidEmail(input.value)) {
+                        showError(input);
+                    } else {
+                        hideError(input);
+                    }
+                });
+
+                input.addEventListener('input', function() {
+                    if (input.value) {
+                        hideError(input);
+                    }
+                });
+            });
+
+            // Email confirmation validation
+            emailInputs.forEach(input => {
+                input.addEventListener('input', checkEmailsMatch);
+            });
+
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+
+                // Check all required fields
+                inputs.forEach(input => {
+                    if (input.required && !input.value) {
+                        showError(input);
+                        isValid = false;
+                    }
+                });
+
+                // Check email format and match
+                if (emailInputs[0].value !== emailInputs[1].value) {
+                    showError(emailInputs[1]);
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Here you would typically send the form data to your server
+                    alert('送信が完了しました。');
+                    form.reset();
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+    <script>
+        link3.style.color="green";
+    </script>
+</body>
+</html>

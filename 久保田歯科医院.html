@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>久保田歯科医院 施工事例 - 読売工務店株式会社</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.8;
+            background-color: #F8F9FF;
+            color: #333;
+        }
+
+        /* Page Header */
+        .page-header {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .page-header-title {
+            position: relative;
+            z-index: 2;
+            color: #333;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Project Description */
+        .project-description {
+            margin-bottom: 60px;
+            font-size: 15px;
+        }
+
+        .project-description p {
+            margin-bottom: 20px;
+        }
+
+        /* Building Details */
+        .building-details {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .building-details h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .details-table tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        .details-table th {
+            width: 120px;
+            padding: 15px 0;
+            text-align: left;
+            font-weight: normal;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .details-table td {
+            padding: 15px 0;
+            font-size: 14px;
+        }
+
+        /* Photo Gallery */
+        .photo-gallery {
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            border-radius: 4px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #2DD4BF;
+        }
+
+        .back-link::before {
+            content: "←";
+            margin-right: 8px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+                margin-top: 70px;
+            }
+            
+            .page-header-title {
+                font-size: 24px;
+                padding: 15px 30px;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .page-header {
+                height: 150px;
+            }
+            
+            .page-header-title {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .details-table th {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation start -->
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="トップ.html" class="company-name">読売工務店株式会社</a>
+            <ul class="top-menu">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+                <a href="お問い合わせ.html" class="contact-btn">お問い合わせ</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu Toggle Button -->
+    <nav id="testing">
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="main-nav-container">
+            <ul class="main-menu">
+                <li><a href="トップ.html" class="active">ホーム</a></li>
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navigation end -->
+    <!-- Page Header -->
+    <div class="page-header">
+        <img src="assets/01.jpg" alt="久保田歯科医院外観">
+        <h1 class="page-header-title">久保田歯科医院</h1>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Project Description -->
+        <section class="project-description">
+            <p>親子2世代の医者が一緒に運営するクリニックの設計です。施主の10の連想からは、明るく、くつろげる、優しさが感じられる医院、地域の繋がりを大切にした医院などのデザインキーワードが得られました。</p>
+            
+            <p>エントランス廻りにはギャラリー空間と待ち合わせの場所を兼ね、親世代のクリニックスペースと子世代の個室を持つクリニック空間で全体を構成しました。2階には休憩室と共に広いルーフテラスを設け、様々なイベントができるようなゆとりのスペースとなりました。</p>
+            
+            <p>全体デザインとして木格子と大ガラスの組み合わせによるモダンなデザインにより清潔感を出すよう留意しました。</p>
+        </section>
+
+        <!-- Building Details -->
+        <section class="building-details">
+            <h2>建物概要</h2>
+            <table class="details-table">
+                <tr>
+                    <th>所在地</th>
+                    <td>栃木県足利市</td>
+                </tr>
+                <tr>
+                    <th>延床面積</th>
+                    <td>294.50㎡</td>
+                </tr>
+                <tr>
+                    <th>構造</th>
+                    <td>鉄骨造2階建</td>
+                </tr>
+                <tr>
+                    <th>竣工</th>
+                    <td>2009.03</td>
+                </tr>
+                <tr>
+                    <th>施工</th>
+                    <td>岩澤建設株式会社</td>
+                </tr>
+                <tr>
+                    <th>設計</th>
+                    <td>連健夫＋小川貴之</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Photo Gallery -->
+        <section class="photo-gallery">
+            <div class="gallery-grid">
+                <!-- Gallery items will be populated with actual project images -->
+                <div class="gallery-item">
+                    <img src="assets/02.JPG" data-full="assets/kubota-dental/full1.jpg" alt="久保田歯科医院 写真1">
+                </div>
+                <!-- Repeat for other images -->
+            </div>
+        </section>
+
+        <!-- Back Link -->
+        <a href="施工事例.html" class="back-link">施工事例一覧へ戻る</a>
+    </main>
+         <!-- Footer start -->
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+                <li><a href="お問い合わせ.html">お問い合わせ</a></li>
+            </ul>
+            <div class="company-info">
+                <h3>読売工務店株式会社</h3>
+                <p>〒108-0014 東京都港区芝5-26-16</p>
+                <p>TEL: 03-3455-0221</p>
+                <p>一級建築士事務所</p>
+                <p>東京都知事登録 第-12345-号</p>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        Copyright © Yomiuri Architect Office All Rights Reserved.
+    </div>
+    <!-- Footer end -->
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <span class="lightbox-close">×</span>
+        <img src="assets/02.JPG" alt="拡大画像">
+    </div>
+
+    <!-- JavaScript for Lightbox -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const lightboxClose = lightbox.querySelector('.lightbox-close');
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+
+            // Open lightbox
+            galleryItems.forEach(img => {
+                img.addEventListener('click', function() {
+                    lightboxImg.src = this.src; // 一時的にサムネイル画像を使用
+                    lightbox.style.display = 'flex';
+                });
+            });
+
+            // Close lightbox
+            function closeLightbox() {
+                lightbox.style.display = 'none';
+                lightboxImg.src = '';
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+
+            // Close on outside click
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Close on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

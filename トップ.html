@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>読売工務店株式会社</title>
+
+    <style>
+        /* backtotop start */
+        #backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background: #555;
+    transform: translateY(-3px);
+}
+
+#backToTop.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+        /* backtotop end */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            background-color: #F8F9FF;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            border-bottom: 1px solid #eee;
+            background: #fff;
+        }
+
+        .top-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .company-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .top-menu {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .top-menu a {
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 4px 16px;
+            background-color: #2DD4BF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            border-bottom: 1px solid #eee;
+            background: #fff;
+        }
+
+        .main-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .main-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 12px 0;
+            display: block;
+        }
+
+        .main-menu .active,.top-menu .active {
+            border-bottom: 2px solid #2DD4BF;
+            color: #2DD4BF;
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            right: 15px;
+            top: 10px;
+            z-index: 1000;
+            /* background-color:black; */
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        /* .hero {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } */
+
+        /* Service Cards */
+        .services {
+            max-width: 1200px;
+            margin: 60px auto;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            text-align: center;
+            padding: 16px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* News Section */
+        .news-section {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .news-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-date {
+            color: #666;
+            font-size: 14px;
+            margin-right: 20px;
+            white-space: nowrap;
+        }
+
+        .news-label {
+            background: #2B3244;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 20px;
+            white-space: nowrap;
+        }
+
+        .news-content {
+            color: #333;
+            font-size: 14px;
+        }
+
+        .more-btn {
+            display: block;
+            width: 120px;
+            margin: 30px auto;
+            padding: 8px 24px;
+            background: #2DD4BF;
+            color: white;
+            text-decoration: none;
+            border-radius: 24px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2B3244;
+            /* background-color:black; */
+            text-align:center;
+            color: white;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .company-info h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .company-info p {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: white;
+            background: #232837;
+        }
+
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 768px) {
+/* 
+            #testing{
+            width:100%;
+            height:50px;
+            position:fixed;
+            border-bottom: 1px solid #eee;
+            background: #fff;
+        } */
+
+            /* Top Navigation */
+            .top-nav-container {
+                /* display: none; */
+                position: fixed;
+                min-width: 768px;
+                
+                /* right: 15px; */
+                /* top: 10px; */
+                z-index: 1000;
+                padding: 18px 15px;
+                border-bottom: 1px solid #eee;
+                background: #fff;
+            }
+
+            .top-menu {
+                display: none;
+            }
+
+            /* Menu Toggle */
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Main Navigation */
+            .main-nav {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 999;
+            }
+
+            .main-nav-container {
+                padding: 0;
+            }
+
+            .main-menu {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+
+            .main-menu li {
+                width: 100%;
+            }
+
+            .main-menu a {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+                font-size: 16px;
+            }
+
+            .main-menu .active {
+                border-bottom: 1px solid #eee;
+                background-color: #f5f5f5;
+            }
+
+            /* When menu is open */
+            .menu-open .main-menu {
+                display: block;
+            }
+
+            .menu-open .menu-toggle span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-open .menu-toggle span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-open .menu-toggle span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            /* Hero Section */
+            .hero {
+                height: 250px;
+                margin-top: 70px; /* Height of main nav */
+            }
+
+            /* Service Cards */
+            .services {
+                flex-direction: column;
+                margin: 30px auto;
+            }
+
+            .service-card {
+                width: 100%;
+            }
+
+            .service-card img {
+                height: 180px;
+            }
+
+            /* News Section */
+            .news-section {
+                margin: 30px auto;
+            }
+
+            .news-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .news-date {
+                margin: 0;
+            }
+
+            .news-label {
+                margin: 0;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 30px 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+        }
+
+        /* Very Small Screens */
+        @media screen and (max-width: 320px) {
+            .service-card h3 {
+                font-size: 14px;
+            }
+
+            .news-content {
+                font-size: 13px;
+            }
+        }
+    </style>
+        <style>
+            /* Previous CSS remains the same until hero section */
+    
+            /* Updated Hero Section Styles */
+            .hero {
+                width: 100%;
+                height: 500px;
+                overflow: hidden;
+                position: relative;
+            }
+    
+            .slideshow {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+    
+            .slide {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+            }
+    
+            .slide.active {
+                opacity: 1;
+            }
+    
+            .slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+    
+            .slideshow-nav {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                display: flex;
+                gap: 10px;
+            }
+    
+            .slideshow-nav button {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                border: 2px solid white;
+                background: transparent;
+                cursor: pointer;
+                padding: 0;
+            }
+    
+            .slideshow-nav button.active {
+                background: white;
+            }
+    
+            /* Arrow Navigation */
+            .slide-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.3);
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                cursor: pointer;
+                z-index: 10;
+                font-size: 20px;
+            }
+    
+            .prev-slide {
+                left: 20px;
+            }
+    
+            .next-slide {
+                right: 20px;
+            }
+    
+            @media screen and (max-width: 768px) {
+                .hero {
+                    height: 250px;
+                    margin-top: 70px;
+                }
+    
+                .slide-arrow {
+                    padding: 8px 12px;
+                    font-size: 16px;
+                }
+    
+                .prev-slide {
+                    left: 10px;
+                }
+    
+                .next-slide {
+                    right: 10px;
+                }
+            }
+        </style>
+</head>
+
+<body>
+    <!-- navigation start -->
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="トップ.html" class="company-name">読売工務店株式会社</a>
+            <ul class="top-menu">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+                <a href="お問い合わせ.html" class="contact-btn">お問い合わせ</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu Toggle Button -->
+    <nav id="testing">
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="main-nav-container">
+            <ul class="main-menu">
+                <li><a href="トップ.html" class="active">ホーム</a></li>
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navigation end -->
+
+    <!-- Hero Section with Slideshow -->
+    <div class="hero">
+        <div class="slideshow">
+            <div class="slide active">
+                <img src="assets/01.jpg" alt="Modern house exterior 1">
+            </div>
+            <div class="slide">
+                <img src="assets/02.JPG" alt="Modern house exterior 2">
+            </div>
+            <div class="slide">
+                <img src="assets/03.jpg" alt="Modern house exterior 3">
+            </div>
+            <div class="slide">
+                <img src="assets/04.jpg" alt="Modern house exterior 4">
+            </div>
+        </div>
+        <button class="slide-arrow prev-slide">&#10094;</button>
+        <button class="slide-arrow next-slide">&#10095;</button>
+        <div class="slideshow-nav"></div>
+    </div>
+
+    <!-- Service Cards -->
+    <div class="services">
+        <a href="新築について.html" style="text-decoration: none;">
+            <div class="service-card">
+                <img src="assets/02.JPG" alt="新築">
+                <h3>新築を建てたい方</h3>
+            </div>
+        </a>
+        <a href="リフォームについて.html" style="text-decoration: none;">
+            <div class="service-card">
+                <img src="assets/03.jpg" alt="リフォーム">
+                <h3>リフォームしたい方</h3>
+            </div>
+        </a>
+        <a href="施工事例.html" style="text-decoration: none;">
+            <div class="service-card">
+                <img src="assets/04.jpg" alt="施工事例">
+                <h3>施工事例</h3>
+            </div>
+        </a>
+    </div>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <h2>新着情報</h2>
+        <ul class="news-list">
+            <a href="新着情報詳細.html" style="text-decoration: none;">
+            <li class="news-item">
+                <span class="news-date">2024.10.23</span>
+                <span class="news-label">お知らせ</span>
+                <span class="news-content">テキストテキストテキストテキストテキストテキストテキストトテキストテキストテキストテキスト</span>
+            </li>
+            </a>
+            <a href="新着情報詳細.html" style="text-decoration: none;">
+            <li class="news-item">
+                <span class="news-date">2024.10.21</span>
+                <span class="news-label">お知らせ</span>
+                <span class="news-content">テキストテキストテキストテキストテキストテキストテキストトテキストテキストテキストテキスト</span>
+            </li>
+            </a>
+            <a href="新着情報詳細.html" style="text-decoration: none;">
+                <li class="news-item">
+                    <span class="news-date">2024.10.18</span>
+                    <span class="news-label">お知らせ</span>
+                    <span class="news-content">テキストテキストテキストテキストテキストテキストテキストトテキストテキストテキストテキスト</span>
+                </li>
+            </a>
+            <a href="新着情報詳細.html" style="text-decoration: none;">
+            <li class="news-item">
+                <span class="news-date">2024.10.15</span>
+                <span class="news-label">お知らせ</span>
+                <span class="news-content">テキストテキストテキストテキストテキストテキストテキストトテキストテキストテキストテキスト</span>
+            </li>
+            </a>
+        </ul>
+        <a href="新着情報.html" class="more-btn">もっと見る</a>
+    </section>
+
+    <!-- Footer start -->
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+                <li><a href="お問い合わせ.html">お問い合わせ</a></li>
+            </ul>
+            <div class="company-info">
+                <h3>読売工務店株式会社</h3>
+                <p>〒108-0014 東京都港区芝5-26-16</p>
+                <p>TEL: 03-3455-0221</p>
+                <p>一級建築士事務所</p>
+                <p>東京都知事登録 第-12345-号</p>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        Copyright © Yomiuri Architect Office All Rights Reserved.
+    </div>
+    <!-- Footer end -->
+    <button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+</body>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainMenu = document.querySelector('.main-menu');
+        const body = document.body;
+
+        // Toggle menu when clicking hamburger
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            body.classList.toggle('menu-open');
+            mainMenu.style.display = body.classList.contains('menu-open') ? 'block' : 'none';
+            document.getElementsByClassName("top-nav-container")[0].style.display="none";
+            document.getElementsByClassName("company-name")[0].style.display="none";
+
+            //test end
+            if (!body.classList.contains('menu-open')) {
+                document.getElementsByClassName("top-nav-container")[0].style.display="flex";
+                // alert("close");
+
+            document.getElementsByClassName("company-name")[0].style.display="block";
+            if(document.getElementsByClassName("showHide").length>0){
+                for(var i=0;i<document.getElementsByClassName("showHide").length;i++){
+                    document.getElementsByClassName("showHide")[i].style.display="none";
+                }
+            }
+            }else{
+            // alert("open");
+            //test start
+            // const mainMenu=document.getElementsByClassName("main-menu")[0];
+            const newListItem = document.createElement('li');
+             const newListItem1 = document.createElement('li');
+             const newListItem2 = document.createElement('li');
+             const newListItem3 = document.createElement('li');
+             newListItem.classList.add("showHide");
+             newListItem1.classList.add("showHide");
+             newListItem2.classList.add("showHide");
+             newListItem3.classList.add("showHide");
+
+             const link = document.createElement('a');
+             const link1 = document.createElement('a');
+             const link2 = document.createElement('a');
+             const link3 = document.createElement('a');
+             link.href = '会社概要.html';
+             link.textContent = '会社概要';
+             newListItem.appendChild(link);
+             link1.href = 'アクセス.html';
+             link1.textContent = 'アクセス';
+             newListItem1.appendChild(link1);
+             link2.href = '新着情報.html';
+             link2.textContent = '新着情報';
+             newListItem2.appendChild(link2);
+             link3.href = 'お問い合わせ.html';
+             link3.textContent = 'お問い合わせ';
+             newListItem3.appendChild(link3);
+             // Append the new <li> to the <ul>
+             mainMenu.appendChild(newListItem);
+             mainMenu.appendChild(newListItem1);
+             mainMenu.appendChild(newListItem2);
+             mainMenu.appendChild(newListItem3);
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.main-nav') && !e.target.closest('.menu-toggle')) {
+                if (body.classList.contains('menu-open')) {
+                    body.classList.remove('menu-open');
+                    mainMenu.style.display = 'none';
+
+                    // console.log(document.getElementsByClassName("top-nav-container")[0]);
+
+                    //test start
+                //     for(var i=0;i<3;i++){
+                //     mainMenu.removeChild(mainMenu.lastElementChild);
+                // }
+                    //test end
+
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                mainMenu.style.display = 'flex';
+                document.getElementsByClassName("company-name")[0].style.display="block";
+                if(document.getElementsByClassName("top-nav-container")[0].style.display=="none"){
+                    document.getElementsByClassName("top-nav-container")[0].style.display="flex";
+                }
+                // document.getElementsByClassName('top-menu')[0].style.display="block";
+                if(document.getElementsByClassName("showHide").length>0){
+                for(var i=0;i<document.getElementsByClassName("showHide").length;i++){
+                    document.getElementsByClassName("showHide")[i].style.display="none";
+                }
+            }
+            } else if (!body.classList.contains('menu-open')) {
+                mainMenu.style.display = 'none';
+            }
+        });
+
+        // Prevent menu close when clicking inside menu
+        mainMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+</script>
+   <!-- Add jQuery before closing body tag -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script>
+       $(document).ready(function() {
+           // Initialize slideshow
+           let currentSlide = 0;
+           const slides = $('.slide');
+           const totalSlides = slides.length;
+           
+           // Create navigation dots
+           const slideNav = $('.slideshow-nav');
+           for (let i = 0; i < totalSlides; i++) {
+               slideNav.append(`<button data-slide="${i}" ${i === 0 ? 'class="active"' : ''}></button>`);
+           }
+
+           // Function to show slide
+           function showSlide(index) {
+               slides.removeClass('active');
+               slides.eq(index).addClass('active');
+               $('.slideshow-nav button').removeClass('active');
+               $(`.slideshow-nav button[data-slide="${index}"]`).addClass('active');
+               currentSlide = index;
+           }
+
+           // Auto advance slides
+           let slideInterval = setInterval(nextSlide, 5000);
+
+           function nextSlide() {
+               showSlide((currentSlide + 1) % totalSlides);
+           }
+
+           function prevSlide() {
+               showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+           }
+
+           // Navigation dot clicks
+           $('.slideshow-nav button').click(function() {
+               clearInterval(slideInterval);
+               showSlide($(this).data('slide'));
+               slideInterval = setInterval(nextSlide, 5000);
+           });
+
+           // Arrow navigation
+           $('.next-slide').click(function(e) {
+               e.preventDefault();
+               clearInterval(slideInterval);
+               nextSlide();
+               slideInterval = setInterval(nextSlide, 5000);
+           });
+
+           $('.prev-slide').click(function(e) {
+               e.preventDefault();
+               clearInterval(slideInterval);
+               prevSlide();
+               slideInterval = setInterval(nextSlide, 5000);
+           });
+
+           // Pause on hover
+           $('.slideshow').hover(
+               function() {
+                   clearInterval(slideInterval);
+               },
+               function() {
+                   slideInterval = setInterval(nextSlide, 5000);
+               }
+           );
+       });
+   </script>
+   <!-- backtotop start -->
+       <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.getElementById('backToTop');
+            let lastScrollPosition = 0;
+            const scrollThreshold = 300; // Show button after scrolling this many pixels
+
+            // Throttle function to limit scroll event handling
+            function throttle(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                }
+            }
+
+            // Handle scroll event
+            window.addEventListener('scroll', throttle(function() {
+                const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Show/hide button based on scroll position
+                if (currentScrollPosition > scrollThreshold) {
+                    button.classList.add('visible');
+                } else {
+                    button.classList.remove('visible');
+                }
+
+                // Update last scroll position
+                lastScrollPosition = currentScrollPosition;
+            }, 100));
+
+            // Smooth scroll to top when button is clicked
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Use smooth scroll if supported
+                if ('scrollBehavior' in document.documentElement.style) {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Fallback for browsers that don't support smooth scroll
+                    smoothScrollFallback();
+                }
+            });
+
+            // Fallback smooth scroll implementation
+            function smoothScrollFallback() {
+                const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+                if (currentPosition > 0) {
+                    window.requestAnimationFrame(smoothScrollFallback);
+                    window.scrollTo(0, currentPosition - currentPosition / 8);
+                }
+            }
+        });
+    </script>
+   <!-- backtotop end -->
+
+</body>
+</html>
+</body>
+</html>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新築について - 読売工務店株式会社</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+         /* backtotop start */
+        #backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background: #555;
+    transform: translateY(-3px);
+}
+
+#backToTop.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+        /* backtotop end */
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            background-color: #F8F9FF;
+            color: #333;
+        }
+
+                /* Page Header */
+                .page-header {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .page-header-title {
+            position: relative;
+            z-index: 2;
+            color: #333;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .new-construction {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .page-title h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #2DD4BF;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 4px solid #2DD4BF;
+        }
+
+        .section-content {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .section-content p {
+            margin-bottom: 15px;
+        }
+
+        .caution-list {
+            background: #f8f9fa;
+            padding: 25px 25px 25px 45px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .caution-list li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .caution-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .process-link {
+            display: inline-block;
+            color: #2DD4BF;
+            text-decoration: none;
+            border-bottom: 1px solid #2DD4BF;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .process-link:hover {
+            color: #26a69a;
+            border-color: #26a69a;
+        }
+
+        .highlight-box {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .new-construction {
+                padding: 40px 15px;
+            }
+
+            .section {
+                margin-bottom: 40px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .caution-list {
+                padding: 20px 20px 20px 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- navigation start -->
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="トップ.html" class="company-name">読売工務店株式会社</a>
+            <ul class="top-menu">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+                <a href="お問い合わせ.html" class="contact-btn">お問い合わせ</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu Toggle Button -->
+    <nav id="testing">
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="main-nav-container">
+            <ul class="main-menu">
+                <li><a href="トップ.html">ホーム</a></li>
+                <li><a href="新築について.html"  class="active">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navigation end -->
+        <!-- Page Header -->
+        <div class="page-header">
+            <img src="assets/01.jpg" alt="新築について">
+            <h1 class="page-header-title">新築について</h1>
+        </div>
+    <main class="new-construction">
+        <div class="page-title">
+            <h1>新築について</h1>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">家を建てられるにあたって</h2>
+            <div class="section-content">
+                <p>初めて家を建てられる方がほとんどだと思いますが、家はただ雨風がしのげればそれで良いと言うものではありません。</p>
+                <p>そこに住まう人の生活に潤いや安らぎ、時には活力を与えられるものであるべきと考えています。</p>
+                <p>当社では、住みやすい住宅設計を念頭に、お客様のご要望以上の快適さを提供できるよう心がけております。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">土地の購入からお手伝いいたします</h2>
+            <div class="section-content">
+                <p>お客様が考える理想の土地と言うのはなかなか手に入らないものです。</p>
+                <p>一般的に、優良な土地は表に出る前に売買されてしまいます。</p>
+                <p>このため、なかなか良い条件の土地を購入することは非常に難しくなっているのが現状です。</p>
+                <div class="highlight-box">
+                    <p>土地の購入を検討している地域がお決まりの場合は、お早めにご相談ください。建設予定エリアの地元不動産屋などに相談し、未公開物件情報などをいち早く手に入れるための施策を講じます。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">土地選びの注意点</h2>
+            <div class="section-content">
+                <p>土地を購入される前に、まずは弊社へご相談ください。</p>
+                <p>家を建てる時は、必ず法に基づいた建築条件を満たさなければいけません。</p>
+                <p>土地の購入に失敗してしまう例としては、下記のような事があります。</p>
+                <ul class="caution-list">
+                    <li>購入した土地が建築条件により、思った広さの家を建てられない。</li>
+                    <li>将来建て替えができない土地だった。</li>
+                    <li>元々沼地だった所を宅地化した土地で、いざ家を建てようと思ったら地盤改良に数百万円かかった。</li>
+                    <li>傾斜地の土地を購入したら、家を建てるためには擁壁（土が流れ出ないようにするための土止めの壁）を作らなくてはならなく莫大な費用が掛かった。</li>
+                </ul>
+                <p>など、素人では分からない注意点が沢山あります。</p>
+                <p>気に入った土地を見つけても焦って購入せず、まずは弊社へご相談ください。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">耐震強度も心配いりません</h2>
+            <div class="section-content">
+                <p>耐震計算はもちろん、最新の建築技術を取り入れ、安心・安全な設計を行います。</p>
+                <p>万一の地震も想定した間取りをご提案いたします。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">ローンのお手伝いもいたします</h2>
+            <div class="section-content">
+                <p>土地建物の購入・建築費用を銀行から借りるためのお手伝いもしております。</p>
+                <p>どうせ無理だからとあきらめる前に、一度弊社にご相談ください。</p>
+                <p>過去に多くのローンを通している実績とノウハウがございますので、ご安心ください。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">家が建つまでの期間</h2>
+            <div class="section-content">
+                <p>建物の大きさや仕様により異なります。木造2階建て延べ床100平米位の場合でおよそ4か月かかります。</p>
+                <p>マンションや社屋、地下のあるなしなどでも大きく変わりますので、まずはご相談ください。</p>
+                <p>一般戸建て住宅が出来るまでの流れは<a href="家が建つまでの流れ.html" class="process-link">こちら</a>はご覧ください。</p>
+            </div>
+        </section>
+
+        <div class="contact-info">
+            <p>まずはお気軽にご相談ください</p>
+            <p>TEL: 03-3455-0221</p>
+        </div>
+    </main>
+             <!-- Footer start -->
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+                <li><a href="お問い合わせ.html">お問い合わせ</a></li>
+            </ul>
+            <div class="company-info">
+                <h3>読売工務店株式会社</h3>
+                <p>〒108-0014 東京都港区芝5-26-16</p>
+                <p>TEL: 03-3455-0221</p>
+                <p>一級建築士事務所</p>
+                <p>東京都知事登録 第-12345-号</p>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        Copyright © Yomiuri Architect Office All Rights Reserved.
+    </div>
+    <!-- Footer end -->
+    <button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+</body>
+<script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const button = document.getElementById('backToTop');
+        let lastScrollPosition = 0;
+        const scrollThreshold = 300; // Show button after scrolling this many pixels
+
+        // Throttle function to limit scroll event handling
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Handle scroll event
+        window.addEventListener('scroll', throttle(function() {
+            const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Show/hide button based on scroll position
+            if (currentScrollPosition > scrollThreshold) {
+                button.classList.add('visible');
+            } else {
+                button.classList.remove('visible');
+            }
+
+            // Update last scroll position
+            lastScrollPosition = currentScrollPosition;
+        }, 100));
+
+        // Smooth scroll to top when button is clicked
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Use smooth scroll if supported
+            if ('scrollBehavior' in document.documentElement.style) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Fallback for browsers that don't support smooth scroll
+                smoothScrollFallback();
+            }
+        });
+
+        // Fallback smooth scroll implementation
+        function smoothScrollFallback() {
+            const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentPosition > 0) {
+                window.requestAnimationFrame(smoothScrollFallback);
+                window.scrollTo(0, currentPosition - currentPosition / 8);
+            }
+        }
+    });
+</script>
+</html>

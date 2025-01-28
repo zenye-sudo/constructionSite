@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家が建つまでの流れ - 読売工務店株式会社</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            background-color: #F8F9FF;
+            color: #333;
+        }
+
+        /* Page Header */
+        .page-header {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .page-header-title {
+            position: relative;
+            z-index: 2;
+            color: #333;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Process Introduction */
+        .process-intro {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            counter-reset: step;
+        }
+
+        .step {
+            position: relative;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: -15px;
+            top: -15px;
+            width: 40px;
+            height: 40px;
+            background: #2DD4BF;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+
+        .step p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* Back Link */
+        .back-link {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #2DD4BF;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .back-button::before {
+            content: "←";
+            font-size: 18px;
+        }
+
+        .back-button:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+                margin-top: 70px;
+            }
+            
+            .page-header-title {
+                font-size: 24px;
+                padding: 15px 30px;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .step {
+                padding: 25px 20px;
+            }
+
+            .step h3 {
+                font-size: 18px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .page-header {
+                height: 150px;
+            }
+            
+            .page-header-title {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .step::before {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+                left: -10px;
+                top: -10px;
+            }
+
+            .step h3 {
+                font-size: 16px;
+                padding-left: 20px;
+            }
+
+            .step p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation start -->
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="トップ.html" class="company-name">読売工務店株式会社</a>
+            <ul class="top-menu">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+                <a href="お問い合わせ.html" class="contact-btn">お問い合わせ</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu Toggle Button -->
+    <nav id="testing">
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="main-nav-container">
+            <ul class="main-menu">
+                <li><a href="トップ.html" class="active">ホーム</a></li>
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navigation end -->
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <img src="assets/01.jpg" alt="家が建つまでの流れ">
+        <h1 class="page-header-title">家が建つまでの流れ</h1>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="process-intro">
+            <p>初めてのお打合せから、家が完成するまでの流れになります。</p>
+        </div>
+
+        <div class="process-steps">
+            <div class="step">
+                <h3>面談</h3>
+                <p>まずはお客様の理想をお聞かせください。<br>
+                過去の施工事例を交え、どのようなコンセプトの家を設計するのが良いかをお客様と一緒に考えます。</p>
+            </div>
+
+            <div class="step">
+                <h3>プランのご提案</h3>
+                <p>初回のお打ち合わせ内容を基に、最適なプランをご提案いたします。<br>
+                このプランをたたき台に、より良い住宅になるように内容を詰めていきます。</p>
+            </div>
+
+            <div class="step">
+                <h3>住宅模型を見ながら最終チェック</h3>
+                <p>プランの詳細が確定したら、完成した住宅の簡易模型を作成いたします。<br>
+                この簡易模型を見ながら最終的なチェックをしていきます。</p>
+            </div>
+
+            <div class="step">
+                <h3>設計及び工事契約</h3>
+                <p>プランが固まりましたら、弊社と設計と工事に関係する契約を結んでいただきます。<br>
+                費用は施工する面積により異なります。</p>
+            </div>
+
+            <div class="step">
+                <h3>詳細図面の作成</h3>
+                <p>実際に家を建てるための詳細設計を行います。<br>
+                コンセントの位置や外壁の素材など、細かい部分を決めながら作成していきます。</p>
+            </div>
+
+            <div class="step">
+                <h3>建築確認申請</h3>
+                <p>家を建てるために必要な申請や手続きを行います。</p>
+            </div>
+
+            <div class="step">
+                <h3>地鎮祭</h3>
+                <p>家を建てる土地に神主さんを呼んで、地鎮祭と呼ばれる祭事を行います。<br>
+                安全祈願と称されることもあります。</p>
+            </div>
+
+            <div class="step">
+                <h3>工事開始</h3>
+                <p>地鎮祭が終わり、建築許可がおりたら工事の開始になります。</p>
+            </div>
+
+            <div class="step">
+                <h3>中間検査</h3>
+                <p>工事の途中で、役所による中間の検査が入ります。<br>
+                申請通りの建物を作成しているかをチェックします。</p>
+            </div>
+
+            <div class="step">
+                <h3>完了検査</h3>
+                <p>建物が完成後、設計通りの建物が完成しているかどうか、役所によるチェックが入ります。</p>
+            </div>
+
+            <div class="step">
+                <h3>引き渡し</h3>
+                <p>完了検査を合格しましたら、お客様に建物をお引渡しいたします。</p>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="新築について.html" class="back-button">新築についてページへ戻る</a>
+        </div>
+    </main>
+
+        <!-- Footer start -->
+        <footer class="footer">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="新築について.html">新築について</a></li>
+                    <li><a href="リフォームについて.html">リフォームについて</a></li>
+                    <li><a href="施工事例.html">施工事例</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <li><a href="会社概要.html">会社概要</a></li>
+                    <li><a href="アクセス.html">アクセス</a></li>
+                    <li><a href="新着情報.html">新着情報</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                    <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+                    <li><a href="お問い合わせ.html">お問い合わせ</a></li>
+                </ul>
+                <div class="company-info">
+                    <h3>読売工務店株式会社</h3>
+                    <p>〒108-0014 東京都港区芝5-26-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第-12345-号</p>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright">
+            Copyright © Yomiuri Architect Office All Rights Reserved.
+        </div>
+        <!-- Footer end -->
+</body>
+<script src="script.js"></script>
+</html>

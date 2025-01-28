@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新着情報 - 読売工務店株式会社</title>
+    <style>
+         /* backtotop start */
+         #backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background: #555;
+    transform: translateY(-3px);
+}
+
+#backToTop.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+        /* backtotop end */
+         /* for header start */
+/* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            background-color: #F8F9FF;
+        } */
+
+        /* Top Navigation */
+        .top-nav {
+            border-bottom: 1px solid #eee;
+            background: #fff;
+        }
+
+        .top-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .company-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .top-menu {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .top-menu a {
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 4px 16px;
+            background-color: #2DD4BF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            border-bottom: 1px solid #eee;
+            background: #fff;
+        }
+
+        .main-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .main-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 12px 0;
+            display: block;
+        }
+
+        .main-menu .active {
+            border-bottom: 2px solid #2DD4BF;
+            color: #2DD4BF;
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            right: 15px;
+            top: 10px;
+            z-index: 1000;
+            /* background-color:black; */
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+                /* Mobile Responsive Styles */
+                @media screen and (max-width: 768px) {
+/* 
+            #testing{
+            width:100%;
+            height:50px;
+            position:fixed;
+            border-bottom: 1px solid #eee;
+            background: #fff;
+        } */
+
+            /* Top Navigation */
+            .top-nav-container {
+                /* display: none; */
+                position: fixed;
+                min-width: 768px;
+                
+                /* right: 15px; */
+                /* top: 10px; */
+                z-index: 1000;
+                padding: 18px 15px;
+                border-bottom: 1px solid #eee;
+                background: #fff;
+            }
+
+            .top-menu {
+                display: none;
+            }
+
+            /* Menu Toggle */
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Main Navigation */
+            .main-nav {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 999;
+            }
+
+            .main-nav-container {
+                padding: 0;
+            }
+
+            .main-menu {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+
+            .main-menu li {
+                width: 100%;
+            }
+
+            .main-menu a {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+                font-size: 16px;
+            }
+
+            .main-menu .active {
+                border-bottom: 1px solid #eee;
+                background-color: #f5f5f5;
+            }
+
+            /* When menu is open */
+            .menu-open .main-menu {
+                display: block;
+            }
+
+            .menu-open .menu-toggle span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-open .menu-toggle span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-open .menu-toggle span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+/* for header end */
+/* for footer start */
+        /* Footer */
+        .footer {
+            background: #2B3244;
+            /* background-color:black; */
+            text-align:center;
+            color: white;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .company-info h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .company-info p {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: white;
+            background: #232837;
+        }
+        @media screen and (max-width: 768px) {
+                        /* Footer */
+                        .footer {
+                padding: 30px 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+/* for footer end */
+
+        /* Base styles and header/footer styles remain the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            background-color: #F8F9FF;
+            color: #333;
+        }
+
+        /* Page Header */
+        .page-header {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .page-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .page-header-title {
+            position: relative;
+            z-index: 2;
+            color: #333;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* News Content */
+        .news-content {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        /* News Categories */
+        .news-categories {
+            margin: 40px 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-btn {
+            padding: 8px 20px;
+            border: 1px solid #2DD4BF;
+            border-radius: 50px;
+            background: white;
+            color: #2DD4BF;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: #2DD4BF;
+            color: white;
+        }
+
+        /* News List */
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .news-date {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .news-category {
+            background: #2B3244;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .news-excerpt {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .news-link {
+            display: inline-block;
+            color: #2DD4BF;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .news-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn.active {
+            background: #2DD4BF;
+            color: white;
+            border-color: #2DD4BF;
+        }
+
+        .page-btn:hover:not(.active) {
+            background: #f5f5f5;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .page-header {
+                height: 200px;
+                margin-top: 70px;
+            }
+            
+            .page-header-title {
+                font-size: 24px;
+                padding: 15px 30px;
+            }
+
+            .news-content {
+                margin: 30px auto;
+            }
+
+            .news-categories {
+                margin: 30px 0;
+            }
+
+            .news-item {
+                padding: 20px;
+            }
+
+            .news-meta {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .page-header {
+                height: 150px;
+            }
+            
+            .page-header-title {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .category-btn {
+                padding: 6px 16px;
+                font-size: 13px;
+            }
+
+            .news-item {
+                padding: 16px;
+            }
+
+            .news-title {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- navigation start -->
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="トップ.html" class="company-name">読売工務店株式会社</a>
+            <ul class="top-menu">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li style="border-bottom: 1px solid green;"><a href="新着情報.html">新着情報</a></li>
+                <a href="お問い合わせ.html" class="contact-btn">お問い合わせ</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu Toggle Button -->
+    <nav id="testing">
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="main-nav-container">
+            <ul class="main-menu">
+                <li><a href="トップ.html">ホーム</a></li>
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navigation end -->
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <img src="assets/01.jpg" alt="新着情報">
+        <h1 class="page-header-title">新着情報</h1>
+    </div>
+
+    <!-- News Content -->
+    <div class="news-content">
+
+        <!-- News List -->
+        <ul class="news-list">
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.07.12</span>
+                    <span class="news-category">お知らせ</span>
+                </div>
+                <h3 class="news-title">竣工のお知らせ</h3>
+                <p class="news-excerpt">山田邸を竣工致しました。...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.06.04</span>
+                    <span class="news-category">イベント</span>
+                </div>
+                <h3 class="news-title">テキストテキ</h3>
+                <p class="news-excerpt">テキストテキストテキストテキストテキストテキストテキスト...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.05.28</span>
+                    <span class="news-category">お知らせ</span>
+                </div>
+                <h3 class="news-title">テキスト</h3>
+                <p class="news-excerpt">テキストテキストテキストテキストテキストテキストテキスト...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.05.28</span>
+                    <span class="news-category">お知らせ</span>
+                </div>
+                <h3 class="news-title">テキスト</h3>
+                <p class="news-excerpt">テキストテキストテキストテキストテキストテキストテキスト...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.04.23</span>
+                    <span class="news-category">お知らせ</span>
+                </div>
+                <h3 class="news-title">テキスト</h3>
+                <p class="news-excerpt">テキストテキストテキストテキストテキストテキストテキスト...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.03.16</span>
+                    <span class="news-category">お知らせ</span>
+                </div>
+                <h3 class="news-title">テキスト</h3>
+                <p class="news-excerpt">テキストテキストテキストテキストテキストテキストテキスト...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.03.04</span>
+                    <span class="news-category">お知らせ</span>
+                </div>
+                <h3 class="news-title">テキスト</h3>
+                <p class="news-excerpt">テキストテキストテキストテキストテキストテキストテキスト...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.02.08</span>
+                    <span class="news-category">お知らせ</span>
+                </div>
+                <h3 class="news-title">テキスト</h3>
+                <p class="news-excerpt">テキストテキストテキストテキストテキストテキストテキスト...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.01.29</span>
+                    <span class="news-category">お知らせ</span>
+                </div>
+                <h3 class="news-title">テキスト</h3>
+                <p class="news-excerpt">テキストテキストテキストテキストテキストテキストテキスト...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+            <li class="news-item">
+                <div class="news-meta">
+                    <span class="news-date">2019.01.22</span>
+                    <span class="news-category">お知らせ</span>
+                </div>
+                <h3 class="news-title">テキスト</h3>
+                <p class="news-excerpt">テキストテキストテキストテキストテキストテキストテキスト...</p>
+                <a href="新着情報詳細.html" class="news-link">詳しく見る →</a>
+            </li>
+        </ul>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="page-btn">1</a>
+            <a href="#" class="page-btn">2</a>
+            <a href="#" class="page-btn">3</a>
+            <a href="#" class="page-btn">4</a>
+            <a href="#" class="page-btn">5</a>
+        </div>
+    </div>
+
+    <!-- Footer start -->
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="新築について.html">新築について</a></li>
+                <li><a href="リフォームについて.html">リフォームについて</a></li>
+                <li><a href="施工事例.html">施工事例</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="会社概要.html">会社概要</a></li>
+                <li><a href="アクセス.html">アクセス</a></li>
+                <li><a href="新着情報.html">新着情報</a></li>
+            </ul>
+            <ul class="footer-links">
+                <li><a href="よくある質問FAQ.html">よくある質問</a></li>
+                <li><a href="スタッフ紹介.html">スタッフ紹介</a></li>
+                <li><a href="お問い合わせ.html">お問い合わせ</a></li>
+            </ul>
+            <div class="company-info">
+                <h3>読売工務店株式会社</h3>
+                <p>〒108-0014 東京都港区芝5-26-16</p>
+                <p>TEL: 03-3455-0221</p>
+                <p>一級建築士事務所</p>
+                <p>東京都知事登録 第-12345-号</p>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        Copyright © Yomiuri Architect Office All Rights Reserved.
+    </div>
+    <!-- Footer end -->
+                       <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainMenu = document.querySelector('.main-menu');
+        const body = document.body;
+
+        // Toggle menu when clicking hamburger
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            body.classList.toggle('menu-open');
+            mainMenu.style.display = body.classList.contains('menu-open') ? 'block' : 'none';
+            document.getElementsByClassName("top-nav-container")[0].style.display="none";
+            document.getElementsByClassName("company-name")[0].style.display="none";
+
+            //test end
+            if (!body.classList.contains('menu-open')) {
+                document.getElementsByClassName("top-nav-container")[0].style.display="flex";
+                // alert("close");
+
+            document.getElementsByClassName("company-name")[0].style.display="block";
+            if(document.getElementsByClassName("showHide").length>0){
+                for(var i=0;i<document.getElementsByClassName("showHide").length;i++){
+                    document.getElementsByClassName("showHide")[i].style.display="none";
+                }
+            }
+            }else{
+            // alert("open");
+            //test start
+            // const mainMenu=document.getElementsByClassName("main-menu")[0];
+            const newListItem = document.createElement('li');
+             const newListItem1 = document.createElement('li');
+             const newListItem2 = document.createElement('li');
+             const newListItem3 = document.createElement('li');
+             newListItem.classList.add("showHide");
+             newListItem1.classList.add("showHide");
+             newListItem2.classList.add("showHide");
+             newListItem3.classList.add("showHide");
+
+             const link = document.createElement('a');
+             const link1 = document.createElement('a');
+             const link2 = document.createElement('a');
+             link2.style.color="green";
+             const link3 = document.createElement('a');
+             link.href = '会社概要.html';
+             link.textContent = '会社概要';
+             newListItem.appendChild(link);
+             link1.href = 'アクセス.html';
+             link1.textContent = 'アクセス';
+             newListItem1.appendChild(link1);
+             link2.href = '新着情報.html';
+             link2.textContent = '新着情報';
+             newListItem2.appendChild(link2);
+             link3.href = 'お問い合わせ.html';
+             link3.textContent = 'お問い合わせ';
+             newListItem3.appendChild(link3);
+             // Append the new <li> to the <ul>
+             mainMenu.appendChild(newListItem);
+             mainMenu.appendChild(newListItem1);
+             mainMenu.appendChild(newListItem2);
+             mainMenu.appendChild(newListItem3);
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.main-nav') && !e.target.closest('.menu-toggle')) {
+                if (body.classList.contains('menu-open')) {
+                    body.classList.remove('menu-open');
+                    mainMenu.style.display = 'none';
+
+                    // console.log(document.getElementsByClassName("top-nav-container")[0]);
+
+                    //test start
+                //     for(var i=0;i<3;i++){
+                //     mainMenu.removeChild(mainMenu.lastElementChild);
+                // }
+                    //test end
+
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                mainMenu.style.display = 'flex';
+                document.getElementsByClassName("company-name")[0].style.display="block";
+                if(document.getElementsByClassName("top-nav-container")[0].style.display=="none"){
+                    document.getElementsByClassName("top-nav-container")[0].style.display="flex";
+                }
+                // document.getElementsByClassName('top-menu')[0].style.display="block";
+                if(document.getElementsByClassName("showHide").length>0){
+                for(var i=0;i<document.getElementsByClassName("showHide").length;i++){
+                    document.getElementsByClassName("showHide")[i].style.display="none";
+                }
+            }
+            } else if (!body.classList.contains('menu-open')) {
+                mainMenu.style.display = 'none';
+            }
+        });
+
+        // Prevent menu close when clicking inside menu
+        mainMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+            const button = document.getElementById('backToTop');
+            let lastScrollPosition = 0;
+            const scrollThreshold = 300; // Show button after scrolling this many pixels
+
+            // Throttle function to limit scroll event handling
+            function throttle(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                }
+            }
+
+            // Handle scroll event
+            window.addEventListener('scroll', throttle(function() {
+                const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Show/hide button based on scroll position
+                if (currentScrollPosition > scrollThreshold) {
+                    button.classList.add('visible');
+                } else {
+                    button.classList.remove('visible');
+                }
+
+                // Update last scroll position
+                lastScrollPosition = currentScrollPosition;
+            }, 100));
+
+            // Smooth scroll to top when button is clicked
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Use smooth scroll if supported
+                if ('scrollBehavior' in document.documentElement.style) {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Fallback for browsers that don't support smooth scroll
+                    smoothScrollFallback();
+                }
+            });
+
+            // Fallback smooth scroll implementation
+            function smoothScrollFallback() {
+                const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+                if (currentPosition > 0) {
+                    window.requestAnimationFrame(smoothScrollFallback);
+                    window.scrollTo(0, currentPosition - currentPosition / 8);
+                }
+            }
+        });
+</script>
+</html>
